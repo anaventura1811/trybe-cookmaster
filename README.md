@@ -1,13 +1,10 @@
-### Termos e acordos
+# Boas vindas ao repositório do projeto Cookmaster!
 
 App desenvolvido no módulo de backend do curso de Desenvolvimento Web da Trybe. 
 
-O projeto utiliza a arquitetura MSC, inclui funcionalidade de cadastro e login de pessoas usuárias, onde apenas essas pessoas poderão acessar, modificar e deletar as receitas que cadastraram.
+Este projeto utiliza a arquitetura MSC e inclui funcionalidade de cadastro e login de pessoas usuárias, onde apenas essas pessoas poderão acessar, modificar e deletar as receitas que cadastraram. 
 
-
-# Boas vindas ao repositório do projeto Cookmaster!
-
-O projeto Cookmaster foi desenvolvido no módulo de backend do curso de Desenvolvimento Web da Trybe. O objetivo foi desenvolver o entendimento acerca de tokens de autenticação, upload de arquivos, autenticação de rotas, salvamento de arquivos no servidor 🚀
+O objetivo foi desenvolver o entendimento acerca de tokens de autenticação, upload de arquivos, autenticação de rotas, salvamento de arquivos no servidor 🚀
 
 ---
 
