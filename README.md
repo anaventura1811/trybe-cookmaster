@@ -1,3 +1,13 @@
+
+# Welcome to the Cookmaster Project Repository!
+
+This app was developed as part of the backend module in the Trybe Web Development course.
+
+The project utilizes the MSC architecture and includes user registration and login functionality. Only registered users can access, modify, and delete the recipes they have created.
+
+The goal was to enhance understanding of authentication tokens, file uploads, route authentication, and saving files on the server 🚀
+
+
 # Boas vindas ao repositório do projeto Cookmaster!
 
 App desenvolvido no módulo de backend do curso de Desenvolvimento Web da Trybe. 
@@ -7,6 +17,32 @@ Este projeto utiliza a arquitetura MSC e inclui funcionalidade de cadastro e log
 O objetivo foi desenvolver o entendimento acerca de tokens de autenticação, upload de arquivos, autenticação de rotas, salvamento de arquivos no servidor 🚀
 
 ---
+# Table of Contents
+
+- [Welcome to the Cookmaster Project Repository!] (#welcome-to-the-cookmaster-project-repository)
+- [Skills](#skills)
+- [Development](#development)
+- [Submission Date](#submission-date)
+- [Database Connection](#database-connection)
+- [Collections](#collections)
+- [Project Requirements](#project-requirements)
+- [Mandatory Requirements](#mandatory-requirements)
+  - [1 - Create an endpoint for user registration](#1---create-an-endpoint-for-user-registration)
+  - [2 - Create an endpoint for user login](#2---create-an-endpoint-for-user-login)
+  - [3 - Create an endpoint for recipe creation](#3---create-an-endpoint-for-recipe-creation)
+  - [4 - Create an endpoint for recipe listing](#4---create-an-endpoint-for-recipe-listing)
+  - [5 - Create an endpoint for viewing a specific recipe](#5---create-an-endpoint-for-viewing-a-specific-recipe)
+  - [6 - Create a Mongo query to insert an admin user](#6---create-a-mongo-query-to-insert-an-admin-user)
+  - [7 - Create an endpoint for editing a recipe](#7---create-an-endpoint-for-editing-a-recipe)
+  - [8 - Create an endpoint for deleting a recipe](#8---create-an-endpoint-for-deleting-a-recipe)
+  - [9 - Create an endpoint for adding an image to a recipe](#9---create-an-endpoint-for-adding-an-image-to-a-recipe)
+  - [10 - Create an endpoint for accessing a recipe’s image](#10---create-an-endpoint-for-accessing-a-recipes-image)
+  - [11 - Create integration tests that cover at least 30% of files in src, with a minimum of 50 lines covered](#11---create-integration-tests-that-cover-at-least-30-of-files-in-src-within-a-minimum-of-50-lines-covered)
+- [Bonus Requirements](#bonus-requirements)
+- [12 - Create an endpoint for registering admin users](#12---create-an-endpoint-for-registering-admin-users)
+- [13 - Create integration tests that cover at least 60% of files in src, with a minimum of 100 lines covered](#13---create-integration-tests-that-cover-at-least-60-of-files-in-src-with-a-minimum-of-100-lines-covered)
+- [14 - Create integration tests that cover at least 90% of files in src, with a minimum of 150 lines covered](#14---create-integration-tests-that-cover-at-least-90-of-files-in-src-with-a-minimum-of-150-lines-covered)
+
 
 # Sumário
 
@@ -36,6 +72,25 @@ O objetivo foi desenvolver o entendimento acerca de tokens de autenticação, up
 
 ---
 
+# Skills
+
+In this project, the following skills were developed:
+
+- Understanding the inner workings of an authentication token.
+  
+- Token generation using login and password information.
+  
+- Route authentication in Express using JWT tokens.
+  
+- File uploads in REST APIs.
+  
+- Saving files on the server via a REST API.
+  
+- Accessing server files via a REST API.
+  
+- Writing integration tests.
+
+
 # Habilidades
 
 Neste projeto, foram desenvolvidas as seguintes habilidades:
@@ -56,6 +111,19 @@ Neste projeto, foram desenvolvidas as seguintes habilidades:
 
 ---
 
+# Development
+
+All layers of the application were developed (Models, Service, and Controllers).
+
+Through this application, it is possible to perform basic CRUD operations (Create, Read, Update, Delete) in a database.
+
+To perform any kind of data modification (such as recipe creation, editing, or deletion), authentication is required.
+
+Authentication is handled via `JWT`.
+
+Images can be added to recipes using file uploads powered by `multer`.
+
+
 # Desenvolvimento
 
 Desenvolvimento de todas as camadas da aplicação (Models, Service e Controllers).
@@ -69,6 +137,11 @@ A autenticação é feita via `JWT`.
 É possível adicionar imagem à uma receita, utilizando o upload de arquivos fornecido pelo `multer`.
 
 ---
+# Submission Date
+
+- As specified by Trybe, this was a `3`-day project.
+- Final project submission date: `09/30/2021 - 14:00h`.
+
 
 # Data de Entrega
 
@@ -76,6 +149,17 @@ A autenticação é feita via `JWT`.
     - Data de entrega para avaliação final do projeto: `30/09/2021 - 14:00h`.
 
 ---
+
+# Database Connection
+
+The local database connection must use the following parameters:
+
+```javascript
+Copiar código
+const MONGO_DB_URL = 'mongodb://localhost:27017/Cookmaster';
+const DB_NAME = 'Cookmaster';
+```
+
 
 # Conexão com o Banco
 
@@ -85,6 +169,44 @@ A conexão do banco local deverá conter os seguintes parâmetros:
 const MONGO_DB_URL = 'mongodb://localhost:27017/Cookmaster';
 const DB_NAME = 'Cookmaster';
 ```
+
+# Collections
+
+The database contains two collections: users and recipes.
+
+The users collection is named `users`.
+
+The fields in the `users` collection have the following format:
+
+```json
+{ "name" : "Erick Jacquin", "email" : "erickjacquin@gmail.com", "password" : "12345678", "role" : "user" }
+```
+
+The response for a successful insert operation is as follows:
+
+```json
+{ "_id" : ObjectId("5f46914677df66035f61a355"), "name" : "Erick Jacquin", "email" : "erickjacquin@gmail.com", "password" : "12345678", "role" : "user" }
+```
+
+(The _id will be automatically generated by MongoDB)
+
+The recipes collection is named `recipes`.
+
+The fields in the `recipes` collection have the following format:
+
+```json
+{ "name" : "Receita do Jacquin", "ingredients" : "Frango", "preparation" : "10 minutos no forno" }
+```
+
+The response for a successful insert operation is as follows:
+
+```json
+{ "_id" : ObjectId("5f46919477df66035f61a356"), "name" : "string", "ingredients" : "string", "preparation" : "string", "userId" : ObjectId("5f46914677df66035f61a355") }
+```
+
+(The _id will be automatically generated by MongoDB, and the userId will be generated with the ID of the user who created the recipe)
+
+
 
 # Coleções
 
@@ -119,6 +241,151 @@ A resposta do insert para ser retornada após a criação é esta:
 { "_id" : ObjectId("5f46919477df66035f61a356"), "name" : "string", "ingredients" : "string", "preparation" : "string", "userId" : ObjectId("5f46914677df66035f61a355") }
 ```
 (O _id será gerado automaticamente pelo mongodb, e o userId será gerado com o id do usuário que criou a receita)
+
+---
+
+# Project Requirements
+
+### Mandatory Requirements
+
+### 1 - Create an endpoint for user registration
+
+- The route should be (/users).
+
+- In the database, a user must have the following fields: Email, Password, Name, and Role.
+
+- To create a user via the API, all fields are required except for Role.
+
+- The Email field must be unique.
+
+- Users created through this endpoint should have the Role field set to user, meaning they are regular users and not admins.
+
+- The request body should be formatted as follows:
+
+  
+  ```json
+  {
+    "name": "string",
+    "email": "string",
+    "password": "string"
+  }
+  ```
+
+  Do not use bcrypt or other libraries to encrypt the password, to ensure compatibility with the evaluator.
+
+  ### Additionally, the following checks will be performed:
+
+- **[It will be validated that the "name" field is required]**
+
+If the user does not provide the "name" field, the returned result should be as shown below, with an HTTP status of `400`:
+
+![User without Name](./public/usuariosemnome.png)
+
+- **[It will be validated that the "email" field is required]**
+
+If the user does not provide the "email" field, the returned result should be as shown below, with an HTTP status of `400`:
+
+![User without Email](./public/usuariosememail.png)
+
+- **[It will be validated that it is not possible to register a user with an invalid email]**
+
+If the user provides an invalid email, the returned result should be as shown below, with an HTTP status of `400`:
+
+![Invalid Email](./public/campoemailinvalido.png)
+
+- **[It will be validated that the "password" field is required]**
+
+If the user does not provide the "password" field, the returned result should be as shown below, with an HTTP status of `400`:
+
+![User without Password](./public/usuariosemsenha.png)
+
+- **[It will be validated that the "email" field is unique]**
+
+If the user registers an email that already exists, the returned result should be as shown below, with an HTTP status of `409`:
+
+![Email already Used](./public/emailjausado.png)
+
+- **[It will be validated that it is possible to register a user successfully]**
+
+If the user is successfully registered, the returned result should be as shown below, with an HTTP status of `201`:
+
+![User Created](./public/usuariocriadocomsucesso.png)
+
+- **[It will be validated that when registering a user, the "role" field has the value "user"]**
+
+If the user is created successfully, the returned result should be as shown below, with an HTTP status of `201`:
+
+![Validate Role](./public/validarrole.png)
+
+### 2 - Create an endpoint for user login
+
+- The route should be (`/login`).
+
+- The route should receive the Email and Password fields, and these fields must be validated in the database.
+
+- In the `JWT` configuration, **do not use environment variables** to avoid conflicts with the evaluator.
+
+- A `JWT` token should be generated and returned if the login is successful. The payload must contain the user's id, email, and role.
+
+- The request body should have the following format:
+
+  ```json
+  {
+    "email": "string",
+    "password": "string"
+  }
+  ```
+  
+**Additionally, the following checks will be performed:**
+
+- **[It will be validated that the "email" field is required]**
+
+If the login does not provide the "email" field, the returned result should be as shown below, with an HTTP status of `401`:
+
+![User without Email](./public/loginsememail.png)
+
+- **[It will be validated that the "password" field is required]**
+
+If the login does not provide the "password" field, the returned result should be as shown below, with an HTTP status of `401`:
+
+![User without Password](./public/loginsemsenha.png)
+
+- **[It will be validated that it is not possible to log in with an invalid email]**
+
+If the login provides an invalid email, the returned result should be as shown below, with an HTTP status of `401`:
+
+![Invalid Email](./public/loginemailinvalido.png)
+
+- **[It will be validated that it is not possible to log in with an invalid password]**
+
+If the login provides an invalid password, the returned result should be as shown below, with an HTTP status of `401`:
+
+![Invalid Password](./public/loginsenhainvalida.png)
+
+- **[It will be validated that it is possible to log in successfully]**
+
+If the login is successful, the returned result should be as shown below, with an HTTP status of `200`:
+
+![Successful Login](./public/logincomsucesso.png)
+
+### 3 - Create an endpoint for recipe registration
+
+- The route must be (`/recipes`).
+
+- A recipe can only be created if the user is logged in and the `JWT` token is validated.
+
+- In the database, the recipe should have the fields Name, Ingredients, Preparation Method, Image URL, and Author ID.
+
+- Name, ingredients, and preparation method must be received in the request body in the following format:
+
+  ```json
+  {
+    "name": "string",
+    "ingredients": "string",
+    "preparation": "string"
+  }
+  ```
+
 
 ---
 
