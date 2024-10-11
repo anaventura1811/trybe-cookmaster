@@ -12,20 +12,10 @@ O objetivo foi desenvolver o entendimento acerca de tokens de autenticação, up
 
 - [Boas vindas ao repositório do projeto Cookmaster!](#boas-vindas-ao-repositório-do-projeto-cookmaster)
 - [Habilidades](#habilidades)
-- [Entregáveis](#entregáveis)
-  - [O que deverá ser desenvolvido](#o-que-deverá-ser-desenvolvido)
-  - [Desenvolvimento](#desenvolvimento)
-  - [Data de Entrega](#data-de-entrega)
-- [Instruções para entregar seu projeto](#instruções-para-entregar-seu-projeto)
-  - [Antes de começar a desenvolver](#antes-de-começar-a-desenvolver)
-  - [Durante o desenvolvimento](#durante-o-desenvolvimento)
-- [Como desenvolver](#como-desenvolver)
-  - [Todos os seus endpoints devem estar no padrão REST](#todos-os-seus-endpoints-devem-estar-no-padrão-rest)
-  - [Conexão com o Banco](#conexão-com-o-banco)
-  - [Coleções](#coleções)
-  - [Linter](#linter)
-  - [Testes](#testes)
-    - [Dica: desativando testes](#dica-desativando-testes)
+- [Desenvolvimento](#desenvolvimento)
+- [Data de Entrega](#data-de-entrega)
+- [Conexão com o Banco](#conexão-com-o-banco)
+- [Coleções](#coleções)
 - [Requisitos do projeto](#requisitos-do-projeto)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
     - [1 - Crie um endpoint para o cadastro de usuários](#1---crie-um-endpoint-para-o-cadastro-de-usuários)
@@ -43,9 +33,6 @@ O objetivo foi desenvolver o entendimento acerca de tokens de autenticação, up
     - [12 - Crie um endpoint para cadastro de pessoas administradoras](#12---crie-um-endpoint-para-cadastro-de-pessoas-administradoras)
     - [13 - Crie testes de integração que cubram no mínimo 60% dos arquivos em `src`, com um mínimo de 100 linhas cobertas](#13---crie-testes-de-integração-que-cubram-no-mínimo-60-dos-arquivos-em-src-com-um-mínimo-de-100-linhas-cobertas)
     - [14 - Crie testes de integração que cubram no mínimo 90% dos arquivos em `src`, com um mínimo de 150 linhas cobertas](#14---crie-testes-de-integração-que-cubram-no-mínimo-90-dos-arquivos-em-src-com-um-mínimo-de-150-linhas-cobertas)
-  - [Depois de terminar o desenvolvimento (opcional)](#depois-de-terminar-o-desenvolvimento-opcional)
-- [Revisando um pull request](#revisando-um-pull-request)
-- [Avisos finais](#avisos-finais)
 
 ---
 
@@ -69,56 +56,28 @@ Neste projeto, foram desenvolvidas as seguintes habilidades:
 
 ---
 
-## Desenvolvimento
+# Desenvolvimento
 
-Você vai desenvolver todas as camadas da aplicação (Models, Service e Controllers) a partir do seu código no projeto cookmaster.
+Desenvolvimento de todas as camadas da aplicação (Models, Service e Controllers).
 
-Através dessa aplicação, será possível realizar as operações básicas que se pode fazer em um determinado banco de dados: Criação, Leitura, Atualização e Exclusão (ou `CRUD`, para as pessoas mais íntimas 😜).
+Através dessa aplicação, é possível realizar as operações básicas de CRUD que se pode fazer em um banco de dados: Criação, Leitura, Atualização e Exclusão.
 
-Para realizar qualquer tipo de alteração no banco de dados (como cadastro, edição ou exclusão de receitas) será necessário autenticar-se. Além disso, as pessoas usuárias devem poder ser clientes ou administradores. Pessoas clientes apenas poderão disparar ações nas receitas que ele mesmo criou. Já uma pessoa administradora pode disparar qualquer ação em qualquer receita.
+Para realizar qualquer tipo de alteração no banco de dados (como cadastro, edição ou exclusão de receitas) é necessário autenticar-se.
 
-A autenticação deverá ser feita via `JWT`.
+A autenticação é feita via `JWT`.
 
-O código para cadastro de pessoas usuárias deve ser criado por você utilizando os conhecimentos adquiridos nesse bloco.
-
-Deverá ser possível adicionar uma imagem à uma receita, utilizando o upload de arquivos fornecido pelo `multer`.
-
-⚠️ **Dicas Importantes** ⚠️:
-
-- Não haverá front-end neste projeto, portanto não se preocupe com a visualização, mas apenas com as funcionalidades e organização do código.
-
-- Sua API deve ser desenvolvida dentro da pasta `./src`, seus testes de integração, na pasta `./src/integration-tests`;
-
-- Para permitir que as imagens sejam acessadas através da API, você deve utilizar o middleware `static` do express, da seguinte forma:
-
-  ```js
-  // ./src/api/app.js
-
-  const path = require('path');
-  // ...
-
-  // /images é o caminho/end-point da API onde as imagens estarão disponíveis
-  // path.join(__dirname, '..', 'uploads') é o caminho da pasta onde o multer deve salvar suas imagens ao realizar o upload
-  // a pasta `uploads` está em `./src/uploads` e não deve ser renomeada ou removida (assim como o arquivo `ratinho.jpg`)
-  app.use('/images', express.static(path.join(__dirname, '..', 'uploads')));
-
-  // ...
-  ```
+É possível adicionar imagem à uma receita, utilizando o upload de arquivos fornecido pelo `multer`.
 
 ---
 
-## Data de Entrega
+# Data de Entrega
 
-    - Serão `3` dias de projeto.
+    - Por especificação da Trybe, foram `3` dias de projeto.
     - Data de entrega para avaliação final do projeto: `30/09/2021 - 14:00h`.
 
 ---
 
-# Instruções para entregar seu projeto
-
----
-
-## Conexão com o Banco
+# Conexão com o Banco
 
 A conexão do banco local deverá conter os seguintes parâmetros:
 
@@ -127,20 +86,13 @@ const MONGO_DB_URL = 'mongodb://localhost:27017/Cookmaster';
 const DB_NAME = 'Cookmaster';
 ```
 
-Para o avaliador funcionar altere a conexão do banco para:
+# Coleções
 
-```javascript
-const MONGO_DB_URL = 'mongodb://mongodb:27017/Cookmaster';
-const DB_NAME = 'Cookmaster';
-```
+O banco tem duas coleções: usuários e receitas.
 
-## Coleções
+A coleção de usuários tem o seguinte nome: `users`.
 
-O banco terá duas coleções: usuários e receitas.
-
-A coleção de usuários deverá ter o seguinte nome: `users`.
-
-Os campos da coleção `users` terão este formato:
+Os campos da coleção `users` tem este formato:
 
 ```json
 { "name" : "Erick Jacquin", "email" : "erickjacquin@gmail.com", "password" : "12345678", "role" : "user" }
@@ -153,9 +105,9 @@ A resposta do insert para ser retornada após a criação é esta:
 ```
 (O _id será gerado automaticamente pelo mongodb)
 
-A coleção de receitas deverá ter o seguinte nome: `recipes`.
+A coleção de receitas deverá tem o seguinte nome: `recipes`.
 
-Os campos da coleção `recipes` terão este formato:
+Os campos da coleção `recipes` tem este formato:
 
 ```json
 { "name" : "Receita do Jacquin", "ingredients" : "Frango", "preparation" : "10 minutos no forno" }
@@ -167,69 +119,6 @@ A resposta do insert para ser retornada após a criação é esta:
 { "_id" : ObjectId("5f46919477df66035f61a356"), "name" : "string", "ingredients" : "string", "preparation" : "string", "userId" : ObjectId("5f46914677df66035f61a355") }
 ```
 (O _id será gerado automaticamente pelo mongodb, e o userId será gerado com o id do usuário que criou a receita)
-
----
-
-## Linter
-
-Usaremos o [ESLint](https://eslint.org/) para fazer a análise estática do seu código.
-
-Este projeto já vem com as dependências relacionadas ao _linter_ configuradas no arquivos `package.json`.
-
-Para poder rodar os `ESLint` em um projeto basta executar o comando `npm install` dentro do projeto e depois `npm run lint`. Se a análise do `ESLint` encontrar problemas no seu código, tais problemas serão mostrados no seu terminal. Se não houver problema no seu código, nada será impresso no seu terminal.
-
-⚠ PULL REQUESTS COM ISSUES DE LINTER NÃO SERÃO AVALIADAS. ATENTE-SE PARA RESOLVÊ-LAS ANTES DE FINALIZAR O DESENVOLVIMENTO! ⚠
-
-Você pode também instalar o plugin do `ESLint` no `VSCode`, bastar ir em extensions e baixar o [plugin `ESLint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
-
-## Testes
-
-Todos os requisitos do projeto serão testados **automaticamente**. Cada `endpoint` possui vários requisitos e os testes para cada requisito de um `endpoint` estão no arquivo de teste correspondente.
-
-_**Por exemplo**: Os requisitos relacionados ao `endpoint` `/users` estão no arquivo `users.test.js`._
-
-Para executar os testes localmente, digite no terminal o comando `npm test`.
-
-Inicialmente todos os testes falharão:
-
-![Todos os testes falharão](./public/all-tests-fail.jpeg)
-
-### Dica: desativando testes
-
-Especialmente no início, quando a maioria dos testes está falhando, a saída após executar os testes é bastante poluída. Você pode desabilitar temporariamente um teste utilizando a função `skip` junto à função `it`. Como o nome indica, esta função "pula" um teste:
-
-```js
-  it.skip('Será validado que o campo "email" é obrigatório', async () => {
-    await frisby
-      .post(`${url}/users/`,
-        {
-          name: 'Erick Jacquin',
-          password: '12345678',
-        })
-      .expect('status', 400)
-      .then((response) => {
-        const { body } = response;
-        const result = JSON.parse(body);
-        expect(result.message).toBe('Invalid entries. Try again.');
-      });
-  })
-```
-
-Uma estratégia é pular todos os testes no início e ir implementando um teste de cada vez, removendo dele a função `skip`.
-
-![Testando um arquivo específico](./public/skip-tests.jpeg)
-
-Você também pode rodar apenas um arquivo de teste, por exemplo:
-
-```bash
-npm test users.test.js
-```
-
-![Testando um arquivo específico](./public/running-one-test-file.jpeg)
-
-⚠️ Lembre-se de não entregar o projeto com nenhum teste ignorado. **Testes ignorados serão tratados como testes falhando**. ⚠️
-
-⚠️ **Não apague, em hipótese alguma, qualquer teste ou arquivo deste repositório**. ⚠️
 
 ---
 
@@ -692,37 +581,3 @@ O resultado do numero total de linhas cobertas deve ser igual ou maior que `100`
 Nenhum teste pode ser pulado;
 O resultado do percentual total de cobertura deve ser igual ou maior que `90`;
 O resultado do numero total de linhas cobertas deve ser igual ou maior que `150`.
-
----
-
-## Depois de terminar o desenvolvimento (opcional)
-
-Para sinalizar que o seu projeto está pronto para o _"Code Review"_ dos seus colegas, faça o seguinte:
-
-* Vá até a página **DO SEU** _Pull Request_, adicione a label de _"code-review"_ e marque seus colegas:
-
-  * No menu à direita, clique no _link_ **"Labels"** e escolha a _label_ **code-review**;
-
-  * No menu à direita, clique no _link_ **"Assignees"** e escolha **o seu usuário**;
-
-  * No menu à direita, clique no _link_ **"Reviewers"** e digite `students`, selecione o time `tryber/students-sd-00`.
-
-Caso tenha alguma dúvida, [aqui tem um video explicativo](https://vimeo.com/362189205).
-
----
-
-# Revisando um pull request
-
-Use o conteúdo sobre [Code Review](https://course.betrybe.com/real-life-engineer/code-review/) para te ajudar a revisar os _Pull Requests_.
-
-#VQV
-
----
-
-# Avisos finais
-
-Ao finalizar e submeter o projeto, não se esqueça de avaliar sua experiência preenchendo o formulário. Leva menos de 3 minutos!
-
-Link: [FORMULÁRIO DE AVALIAÇÃO DE PROJETO](https://bit.ly/39qMu3s)
-
-O avaliador automático não necessariamente avalia seu projeto na ordem em que os requisitos aparecem no readme. Isso acontece para deixar o processo de avaliação mais rápido. Então, não se assuste se isso acontecer, ok?
