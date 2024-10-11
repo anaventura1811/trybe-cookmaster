@@ -1,12 +1,13 @@
 ### Termos e acordos
 
-Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe
+App desenvolvido no módulo de backend do curso de Desenvolvimento Web da Trybe. 
+
+O projeto utiliza a arquitetura MSC, inclui funcionalidade de cadastro e login de pessoas usuárias, onde apenas essas pessoas poderão acessar, modificar e deletar as receitas que cadastraram.
+
 
 # Boas vindas ao repositório do projeto Cookmaster!
 
-Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por Slack! #vqv 🚀
-
-Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um Pull Request para colocar seus códigos.
+O projeto Cookmaster foi desenvolvido no módulo de backend do curso de Desenvolvimento Web da Trybe. O objetivo foi desenvolver o entendimento acerca de tokens de autenticação, upload de arquivos, autenticação de rotas, salvamento de arquivos no servidor 🚀
 
 ---
 
@@ -53,37 +54,21 @@ Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu
 
 # Habilidades
 
-Neste projeto, você será capaz de:
+Neste projeto, foram desenvolvidas as seguintes habilidades:
 
-- Entender o que há por dentro de um token de autenticação;
+- Entendimento acerca do que há por dentro de um token de autenticação.
 
-- Gerar tokens a partir de informações como login e senha;
+- Geração de tokens a partir de informações como login e senha.
 
-- Autenticar rotas do Express, usando o token JWT;
+- Autenticação de rotas do Express, usando o token JWT.
 
-- Fazer upload de arquivos em APIs REST;
+- Upload de arquivos em APIs REST.
 
-- Salvar arquivos no servidor através de uma API REST;
+- Salvamento de arquivos no servidor através de uma API REST.
 
-- Consultar arquivos do servidor através de uma api REST.
+- Consulta aos arquivos do servidor através de uma API REST.
 
-- Realizar testes de integração
-
----
-
-# Entregáveis
-
-Para entregar o seu projeto você deverá criar um Pull Request neste repositório.
-
-Lembre-se que você pode consultar nosso conteúdo sobre [Git & GitHub](https://app.betrybe.com/course/fundamentals/git) sempre que precisar!
-
----
-
-## O que deverá ser desenvolvido
-
-Você vai desenvolver seu app utilizando a arquitetura MSC!
-
-Neste novo projeto deverá ser possível fazer o cadastro e login de pessoas usuárias, onde apenas essas pessoas poderão acessar, modificar e deletar as receitas que cadastrou.
+- Realização de testes de integração
 
 ---
 
@@ -134,104 +119,7 @@ Deverá ser possível adicionar uma imagem à uma receita, utilizando o upload d
 
 # Instruções para entregar seu projeto
 
-## Antes de começar a desenvolver
-
-1. Clone o repositório
-
-- `git clone https://github.com/tryber/sd-010-a-cookmaster.git`.
-- Entre na pasta do repositório que você acabou de clonar:
-  - `cd sd-010-a-cookmaster`
-
-2. Instale as dependências [**Caso existam**]
-
-- `npm install`
-
-3. Crie uma branch a partir da branch `master`
-
-- Verifique que você está na branch `master`
-  - Exemplo: `git branch`
-- Se não estiver, mude para a branch `master`
-  - Exemplo: `git checkout master`
-- Agora crie uma branch à qual você vai submeter os `commits` do seu projeto
-  - Você deve criar uma branch no seguinte formato: `nome-de-usuario-nome-do-projeto`
-  - Exemplo: `git checkout -b joaozinho-sd-010-a-cookmaster`
-
-4. Adicione as mudanças ao _stage_ do Git e faça um `commit`
-
-- Verifique que as mudanças ainda não estão no _stage_
-  - Exemplo: `git status` (deve aparecer listada a pasta _joaozinho_ em vermelho)
-- Adicione o novo arquivo ao _stage_ do Git
-    - Exemplo:
-      - `git add .` (adicionando todas as mudanças - _que estavam em vermelho_ - ao stage do Git)
-      - `git status` (deve aparecer listado o arquivo _joaozinho/README.md_ em verde)
-- Faça o `commit` inicial
-    - Exemplo:
-      - `git commit -m 'iniciando o projeto x'` (fazendo o primeiro commit)
-      - `git status` (deve aparecer uma mensagem tipo _nothing to commit_ )
-
-5. Adicione a sua branch com o novo `commit` ao repositório remoto
-
-- Usando o exemplo anterior: `git push -u origin joaozinho-sd-010-a-cookmaster`
-
-6. Crie um novo `Pull Request` _(PR)_
-
-- Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-010-a-cookmaster/pulls)
-- Clique no botão verde _"New pull request"_
-- Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
-- Clique no botão verde _"Create pull request"_
-- Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
-- **Não se preocupe em preencher mais nada por enquanto!**
-- Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-010-a-cookmaster/pulls) e confira que o seu _Pull Request_ está criado
-
 ---
-
-## Durante o desenvolvimento
-
-- Faça `commits` das alterações que você fizer no código regularmente.
-
-- Lembre-se de sempre após um (ou alguns) `commits` atualizar o repositório remoto.
-
-- Os comandos que você utilizará com mais frequência são:
-  1. `git status` _(para verificar o que está em vermelho - fora do stage - e o que está em verde - no stage)_
-  2. `git add` _(para adicionar arquivos ao stage do Git)_
-  3. `git commit` _(para criar um commit com os arquivos que estão no stage do Git)_
-  4. `git push -u nome-da-branch` _(para enviar o commit para o repositório remoto na primeira vez que fizer o `push` de uma nova branch)_
-  5. `git push` _(para enviar o commit para o repositório remoto após o passo anterior)_
-
----
-
-# Como desenvolver
-
-**⚠️ Leia-os atentamente e siga à risca o que for pedido. ⚠️**
-
-**👀 Observações importantes:**
-
- - O não cumprimento de um requisito, total ou parcialmente, impactará em sua avaliação;
- - O projeto deve rodar na porta **3000**;
- - A testagem local depende da API estar rodando (utilize `npm run dev` para facilitar o processo);
-
-##  Todos os seus endpoints devem estar no padrão REST
-
-- Use os verbos HTTP adequados para cada operação.
-
-- Agrupe e padronize suas URL em cada recurso.
-
-- Garanta que seus endpoints sempre retornem uma resposta, havendo sucesso nas operações ou não.
-
-- Retorne os códigos de status corretos (recurso criado, erro de validação, autorização, etc).
-
----
-
-Há dois arquivos em `./src/api/` no repositório: `server.js` e `app.js`, **ambos não devem ser renomeados ou apagados**. 
-
-Em `app.js` o seguinte trecho de código não deve ser removido:
-
-```javascript
-app.get('/', (request, response) => {
-  response.send();
-});
-```
-Isso está configurado para o avaliador funcionar corretamente.
 
 ## Conexão com o Banco
 
